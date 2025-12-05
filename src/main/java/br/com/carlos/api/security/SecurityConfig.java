@@ -17,12 +17,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
 
                         .requestMatchers(HttpMethod.GET, "/usuarios").authenticated()
-                        .requestMatchers(HttpMethod.DELETE, "usuarios").authenticated()
+                        .requestMatchers(HttpMethod.DELETE, "/usuarios/**").authenticated()
 
                         .anyRequest().permitAll())
 
-                .formLogin(form -> form.loginPage("/auth").permitAll()
-                        .defaultSuccessUrl("/usuarios"))
+                .formLogin(form -> form.loginPage("/auth")
+                        .defaultSuccessUrl("/usuarios", true) // force redirect
+                        .failureUrl("/auth?erro=true")
+                        .permitAll())
                 .logout(logout -> logout.permitAll())
                 .csrf(csrf -> csrf.disable());
         return http.build();

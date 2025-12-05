@@ -53,7 +53,6 @@ public class UsuarioService {
     public Boolean validarSenha(LoginRequest loginRequest) {
         Optional<Usuario> usuarioOpt = repository.findByEmail(loginRequest.getEmail());
 
-
         if(usuarioOpt.isEmpty()) {
             return false;
         }

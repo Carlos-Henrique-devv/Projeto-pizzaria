@@ -28,7 +28,6 @@ function cadastrar() {
         .catch(function (res) {console.log(res)})
 };
 
-
 function limparCampos() {
     Inome.value = "",
     Iusername.value = "",
@@ -36,7 +35,6 @@ function limparCampos() {
     Isenha.value = "",
     Itel.value = ""
 };
-
 
 formulario.addEventListener('submit', function(event) {
     event.preventDefault();
