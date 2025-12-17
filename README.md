@@ -21,7 +21,7 @@ Também vamos usar **Thymeleaf** para retornar nossos templates, e o controle de
 - Mysql
 - Spring boot devtools
 - Lombok
-- validation
+- Validation
 
 ---
 
@@ -97,8 +97,7 @@ src/
     git clone https://github.com/Carlos-Henrique-devv/Projeto-loja-online.git
     cd Projeto-loja-online
    
-Tem que criar um banco mysql com o nome "projeto-api", sim você já tem esse banco com esse nome tem que criar outro banco com outro nome e mudar no  
-"application.properties".  
+Tem que criar um banco mysql com o nome "projeto-api", sim você já tem esse banco com esse nome tem que criar outro banco com outro nome e mudar no "application.properties".  
 vamos te as tabelas usuario, auth, roles e auth_roles, vou mostra como criar as tabelas logo abaixo.  
 
    ```
@@ -133,5 +132,5 @@ vamos te as tabelas usuario, auth, roles e auth_roles, vou mostra como criar as 
 2. Acesse a pasta do projeto com Intellij
 3. Espere baixar as dependências com Maven  
 4. Execute o projeto  
-5. Pode cadastra usuários e fazer login e só acessa as rota: localhost:cadastra e fazer o cadastro depois o login na rota: localhost:8080/signin
+5. Pode cadastra usuários e fazer login e só acessa as rota: localhost:8080/cadastro e fazer o cadastro depois o login na rota: localhost:8080/signin
 6. Acesse: localhost:8080/auth, Coloque no User: "admin" e na senha "Admin123." e vai ver os usuários cadastrado
