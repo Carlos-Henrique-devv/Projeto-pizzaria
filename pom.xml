@@ -11,7 +11,7 @@
 	<groupId>br.com.carlos</groupId>
 	<artifactId>Projeto-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>PROJETO-API-MOTO-CODE</name>
+	<name>PROJETO-API</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

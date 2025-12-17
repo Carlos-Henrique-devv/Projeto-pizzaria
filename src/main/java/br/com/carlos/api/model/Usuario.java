@@ -20,6 +20,9 @@ public class Usuario {
     @Column(name = "nome", length = 200, nullable = false)
     private String nome;
 
+    @Column(name = "nomecompleto", length = 200)
+    private String nomecompleto;
+
     @NotBlank(message = "O username e obrigatório!")
     @Column(name = "username", length = 100, nullable = false)
     private String username;
@@ -29,7 +32,7 @@ public class Usuario {
     private String email;
 
     @NotBlank(message = "A senha e obrigatoria!")
-    @Column(name = "senha", columnDefinition = "TEXT", nullable = false)
+    @Column(name = "senha", length = 100, nullable = false)
     private String senha;
 
     @NotBlank(message = "O telefone e obrigatorio!")
