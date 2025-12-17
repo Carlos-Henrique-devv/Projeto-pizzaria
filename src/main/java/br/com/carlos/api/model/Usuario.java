@@ -20,8 +20,8 @@ public class Usuario {
     @Column(name = "nome", length = 200, nullable = false)
     private String nome;
 
-    @Column(name = "nomecompleto", length = 200)
-    private String nomecompleto;
+    @Column(name = "sobrenome", length = 200)
+    private String sobrenome;
 
     @NotBlank(message = "O username e obrigatório!")
     @Column(name = "username", length = 100, nullable = false)
