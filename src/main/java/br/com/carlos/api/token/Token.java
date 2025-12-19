@@ -1,4 +1,4 @@
-package br.com.carlos.api.security;
+package br.com.carlos.api.token;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -29,11 +29,12 @@ public class AppController {
                 && !(authentication instanceof AnonymousAuthenticationToken)) {
             return "redirect:/usuarios";
         }
+
         return "auth";
     }
 
     @GetMapping("/error")
-    public String error() {
+    public String user() {
         return "error";
     }
 }

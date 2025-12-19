@@ -26,13 +26,22 @@ function cadastrar() {
                 telefone: Itel.value
             })
         })
-        .then(function (res) {
-             if(res.ok) {
-                window.location.href = "/signin"
-            } else {
-                mostrarErro();
-            }
+        .then(async (res) => {
+
+        if (res.status === 201) {
+            window.location.href = "/signin";
+            return;
+        }
+
+        if (res.status === 400) {
+            mostrarErro();
+            return;
+        }
+
         })
+        .catch(err => {
+            console.error("Erro inesperado:", err);
+        });
 };
 
 function mostrarErro() {

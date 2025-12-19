@@ -3,10 +3,9 @@ package br.com.carlos.api.controller;
 import br.com.carlos.api.dto.LoginRequest;
 import br.com.carlos.api.model.Usuario;
 import br.com.carlos.api.repository.IUsuario;
-import br.com.carlos.api.security.Token;
-import br.com.carlos.api.security.TokenUtil;
+import br.com.carlos.api.token.Token;
+import br.com.carlos.api.token.TokenUtil;
 import br.com.carlos.api.service.UsuarioService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,12 +35,17 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> saveUsuario(@Valid @RequestBody Usuario usuario) {
-        return ResponseEntity.ok(usuarioService.salvaUsuario(usuario));
+    public ResponseEntity<Usuario> saveUsuario(@RequestBody Usuario usuario) {
+        try {
+            usuarioService.salvaUsuario(usuario);
+            return ResponseEntity.status(201).build();
+        } catch (Exception e) {
+            return ResponseEntity.status(400).build();
+        }
     }
 
     @PutMapping
-    public ResponseEntity<Usuario> editarUsuario(@Valid @RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> editarUsuario(@RequestBody Usuario usuario) {
         return ResponseEntity.status(201).body(usuarioService.editarUsuario(usuario));
     }
 
@@ -57,14 +61,12 @@ public class UsuarioController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<?> validarSenha(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<?> validarSenha(@RequestBody LoginRequest loginRequest) {
         Boolean valid = usuarioService.validarSenha(loginRequest);
         Optional<Usuario> optFindByEmail = iUsuario.findByEmail(loginRequest.getEmail());
 
         if (!valid) {
-            Map<String, String> error = new HashMap<>();
-            error.put("Messagem", "Email ou senha invalida");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+            return ResponseEntity.status(401).build();
         }
 
         Usuario usuario = optFindByEmail.get();

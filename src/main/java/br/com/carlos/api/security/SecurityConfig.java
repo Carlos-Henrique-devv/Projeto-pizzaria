@@ -16,18 +16,20 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
 
-                        .requestMatchers(HttpMethod.GET, "/usuarios").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/usuarios").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/usuarios/**").authenticated()
                         .requestMatchers(HttpMethod.PUT, "/usuarios").authenticated()
+
 
                         .anyRequest().permitAll())
 
                 .formLogin(form -> form.loginPage("/auth")
-                        .defaultSuccessUrl("/usuarios", true) // force redirect
                         .failureUrl("/auth?erro=true")
+                        .defaultSuccessUrl("/usuarios")
                         .permitAll())
                 .logout(logout -> logout.permitAll())
                 .csrf(csrf -> csrf.disable());
+
         return http.build();
     }
 }
