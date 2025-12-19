@@ -26,59 +26,71 @@ Também vamos usar **Thymeleaf** para retornar nossos templates, e o controle de
 
 ## 📂 Estrutura do projeto
 
-src/
-└── main/
-├── java/
-│   └── br/
-│       └── com/
-│           └── carlos/
-│               └── api/
-│                   ├── controller/
-│                   │   ├── AppController.java
-│                   │   └── UsuarioController.java
-│                   ├── dto/
-│                   │   └── LoginRequest.java
-│                   ├── model/
-│                   │   ├── Role.java
-│                   │   ├── UserAuth.java
-│                   │   └── Usuario.java
-│                   ├── repository/
-│                   │   ├── IRole.java
-│                   │   ├── IUserAuth.java
-│                   │   └── IUsuario.java
-│                   ├── security/
-│                   │   ├── SecurityConfig.java
-│                   │   ├── SecurityFilter.java
-│                   │   ├── Token.java
-│                   │   └── TokenUtil.java
-│                   ├── service/
-│                   └── ProjetoApiMotoCodeApplication.java
-└── resources/
-├── static/
-│   ├── css/
-│   │   ├── auth.css
-│   │   ├── cadastro.css
-│   │   ├── home.css
-│   │   └── signin.css
-│   ├── imgs/
-│   │   ├── caixa-de-pizza.png
-│   │   ├── calabresa.jpg
-│   │   ├── frango.jpg
-│   │   ├── garfo1.png
-│   │   ├── mms.jpg
-│   │   ├── mussarela.jpg
-│   │   └── pizzagrande1.png
-│   └── js/
-│       ├── cadastro.js
-│       ├── home.js
-│       └── signin.js
-├── templates/
-│   ├── auth.html
-│   ├── cadastro.html
-│   ├── error.html
-│   ├── home.html
-│   └── signin.html
-└── application.properties
+   ```
+      src
+   ├── main
+   │   ├── java
+   │   │   └── br
+   │   │       └── com
+   │   │           └── carlos
+   │   │               └── api
+   │   │                   ├── controller
+   │   │                   │   ├── AppController.java
+   │   │                   │   └── UsuarioController.java
+   │   │                   ├── dto
+   │   │                   │   └── LoginRequest.java
+   │   │                   ├── model
+   │   │                   │   ├── Role.java
+   │   │                   │   ├── UserAuth.java
+   │   │                   │   └── Usuario.java
+   │   │                   ├── ProjetoApiMotoCodeApplication.java
+   │   │                   ├── repository
+   │   │                   │   ├── IRole.java
+   │   │                   │   ├── IUserAuth.java
+   │   │                   │   └── IUsuario.java
+   │   │                   ├── security
+   │   │                   │   └── SecurityConfig.java
+   │   │                   ├── service
+   │   │                   │   ├── UserDetailsServiceImpl.java
+   │   │                   │   └── UsuarioService.java
+   │   │                   └── token
+   │   │                       ├── Token.java
+   │   │                       └── TokenUtil.java
+   │   └── resources
+   │       ├── application.properties
+   │       ├── static
+   │       │   ├── css
+   │       │   │   ├── auth.css
+   │       │   │   ├── cadastro.css
+   │       │   │   ├── home.css
+   │       │   │   └── signin.css
+   │       │   ├── imgs
+   │       │   │   ├── 360_F_567611992_70X7W94aXPfKYgUzVAcOEh03CcI7ivBC.jpg
+   │       │   │   ├── calabresa.jpg
+   │       │   │   ├── frango.jpg
+   │       │   │   ├── garfo1.png
+   │       │   │   ├── mms.jpg
+   │       │   │   ├── mussarela.jpg
+   │       │   │   └── pizzagrande1.png
+   │       │   └── js
+   │       │       ├── cadastro.js
+   │       │       ├── home.js
+   │       │       └── signin.js
+   │       └── templates
+   │           ├── auth.html
+   │           ├── cadastro.html
+   │           ├── error.html
+   │           ├── home.html
+   │           └── signin.html
+   └── test
+       └── java
+           └── br
+               └── com
+                   └── carlos
+                       └── api
+                           └── ProjetoApiMotoCodeApplicationTests.java
+                           
+   ```
 
 
 ---
