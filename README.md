@@ -34,6 +34,7 @@ Também vamos usar **Thymeleaf** para retornar nossos templates, e o controle de
    │   │       └── com
    │   │           └── carlos
    │   │               └── api
+   │   │                   ├── ProjetoApiMotoCodeApplication.java
    │   │                   ├── controller
    │   │                   │   ├── AppController.java
    │   │                   │   └── UsuarioController.java
@@ -43,7 +44,6 @@ Também vamos usar **Thymeleaf** para retornar nossos templates, e o controle de
    │   │                   │   ├── Role.java
    │   │                   │   ├── UserAuth.java
    │   │                   │   └── Usuario.java
-   │   │                   ├── ProjetoApiMotoCodeApplication.java
    │   │                   ├── repository
    │   │                   │   ├── IRole.java
    │   │                   │   ├── IUserAuth.java
@@ -110,9 +110,16 @@ Também vamos usar **Thymeleaf** para retornar nossos templates, e o controle de
     ```bash
     git clone https://github.com/Carlos-Henrique-devv/Projeto-loja-online.git
     cd Projeto-loja-online
-   
-Tem que criar um banco mysql com o nome "projeto_api", sim você já tem esse banco com esse nome tem que criar outro banco com outro nome e mudar no "application.properties".  
-vamos te as tabelas usuario, auth, roles e auth_roles, vou mostra como criar as tabelas logo abaixo.  
+
+É necessário criar um banco de dados MySQL com o nome projeto_api.
+Caso você já possua um banco com esse nome, crie outro banco com um nome diferente e atualize a configuração no arquivo application.properties.
+
+O projeto utiliza as seguintes tabelas no banco de dados:
+
+- usuario
+- auth
+- roles
+- auth_roles
 
    ```
    create table usuario(
