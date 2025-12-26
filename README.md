@@ -9,7 +9,7 @@ Neste projeto, utilizei roles para autenticar rotas que o usuário comum não te
 O **JWT** é utilizado para gerar um token quando o usuário realiza o login. Atenção! O usuário que faz login na rota de autenticação, nesse caso a rota de autenticação
 e (`/auth`), não tem relação com o usuário que faz login na rota de login que é a rota (`/signin`).  
 O usuário que faz login na rota (`/signin`), primeiro precisa se cadastrar no banco de dados. então ele acessa a rota (`/cadastro`)  e faz o cadastro do usuário.  
-Neste caso estamos utilizando um banco de dados **MySQL**, e vou mostrar mais à frente como criar esse banco de dados.  
+Neste caso estamos utilizando um banco de dados **MySQL**, e vou mostrar mais em frente como criar esse banco de dados.  
 Já as nossas **ROLES** são criada via CommandLineRunner e só da run no projeto ela já criada, Vamos usar **Thymeleaf** para retornar nossos templates, e o controle de acesso será feito com **Spring MVC**.
 
 ---
@@ -21,7 +21,7 @@ Já as nossas **ROLES** são criada via CommandLineRunner e só da run no projet
 - Spring Security
 - Thymeleaf
 - Maven
-- JWT (JSON Web Token)
+- JWT (JSON WEb TOKEN)
 - Spring Data Jpa
 - MySQL
 - Spring Boot Devtools
