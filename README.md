@@ -31,12 +31,14 @@ Já as nossas **ROLES** são criada via CommandLineRunner e só da run no projet
 
 ## 🔒 Segurança
 
-- Senha são amazenadas de forma criptrogradada (BCrypt)
-- Criação de token via JWT
-- Autenticação feita via controller no BackEnd
-- Autenticação de roles via SpringSecurity
-- Controle de rotas via ROLES
-- Rotas sensíveis protegidas pelo SpringSecurity, baseados em ROLES.
+## 🔒 Segurança
+
+- Senhas armazenadas de forma criptografada utilizando BCrypt
+- Geração de token JWT no processo de login
+- Autenticação de credenciais realizada via Controller no Back-end
+- Autorização baseada em ROLES utilizando Spring Security
+- Controle de acesso às rotas feito com base nas ROLES do usuário
+- Rotas sensíveis protegidas pelo Spring Security
 
 ---
 
