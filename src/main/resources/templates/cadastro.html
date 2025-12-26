@@ -23,10 +23,11 @@
             <input type="tel" class="telefone" name="tel" placeholder="Telefone (Obrigatório)" required>
 
             <button>Cadastrar</button>
+            
+            <a th:href="@{/signin}" class="btn-link">Já tem conta? Faça login</a>
         </form>
-        <a th:href="@{/signin}" class="btn-link">Já tem conta? Faça login</a>
     </div>
 
-<script th:src="@{/js/cadastro.js}"></script>
+    <script th:src="@{/js/cadastro.js}"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@ public class ProjetoApiApplication {
 
             if (iUserAuth.findByUsername("admin").isEmpty()) {
                 Role adminRole = iRole.findByName("ROLE_ADMIN").get();
-                UserAuth admin = new UserAuth("admin", passwordEncoder.encode("Admin123"), Set.of(adminRole));
+                UserAuth admin = new UserAuth("admin", passwordEncoder.encode("Admin123."), Set.of(adminRole));
                 iUserAuth.save(admin);
             }
         };
