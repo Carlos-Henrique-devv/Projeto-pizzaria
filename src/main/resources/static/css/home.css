@@ -253,12 +253,15 @@ main {
 
 
 .about-container h2 {
-    margin-top: 20px 0 20px 0;
+    margin: 10px 0 20px 0;
     color: var(--cor-segundaria);
+    font-size: 1.9rem;
+    font-weight: bolder;
 }
 
 .about-text p {
     color: #93703877;
+    font-size: 1.1rem
 }
 footer {
     background-color: var(--cor-segundaria);

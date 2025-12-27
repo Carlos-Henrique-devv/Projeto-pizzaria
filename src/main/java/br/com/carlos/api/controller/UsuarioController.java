@@ -1,12 +1,13 @@
 package br.com.carlos.api.controller;
 
-import br.com.carlos.api.dto.LoginRequest;
+import br.com.carlos.api.dto.LoginRequestDto;
+import br.com.carlos.api.dto.UsuarioDto;
 import br.com.carlos.api.model.Usuario;
 import br.com.carlos.api.repository.IUsuario;
 import br.com.carlos.api.token.Token;
 import br.com.carlos.api.token.TokenUtil;
 import br.com.carlos.api.service.UsuarioService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -23,11 +24,13 @@ import java.util.Optional;
 @CrossOrigin("*")
 public class UsuarioController {
 
-    @Autowired
-    private UsuarioService usuarioService;
+    private final UsuarioService usuarioService;
+    private final IUsuario iUsuario;
 
-    @Autowired
-    private IUsuario iUsuario;
+    public UsuarioController(UsuarioService usuarioService, IUsuario iUsuario) {
+        this.usuarioService = usuarioService;
+        this.iUsuario = iUsuario;
+    }
 
     @GetMapping
     public ResponseEntity<List<Usuario>> getUsuarios() {
@@ -35,18 +38,21 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> saveUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<?> saveUsuario(@RequestBody @Valid UsuarioDto usuarioDto) {
         try {
-            usuarioService.salvaUsuario(usuario);
-            return ResponseEntity.status(201).build();
+            return ResponseEntity.status(201).body(usuarioService.salvaUsuario(usuarioDto));
         } catch (Exception e) {
-            return ResponseEntity.status(400).build();
+            return ResponseEntity.status(400).body("Error ao cria o usuário");
         }
     }
 
     @PutMapping
-    public ResponseEntity<Usuario> editarUsuario(@RequestBody Usuario usuario) {
-        return ResponseEntity.status(201).body(usuarioService.editarUsuario(usuario));
+    public ResponseEntity<?> editarUsuario(@RequestBody @Valid UsuarioDto usuarioDto) {
+        try {
+            return ResponseEntity.status(201).body(usuarioService.editarUsuario(usuarioDto));
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("Erro ao altera o usuário");
+        }
     }
 
     @DeleteMapping("/{id}")
@@ -54,19 +60,19 @@ public class UsuarioController {
         boolean deletado = usuarioService.excluirUsuario(id);
 
         if (deletado) {
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.status(204).build();
         } else {
             return ResponseEntity.status(404).body("Usuário não encontrado");
         }
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<?> validarSenha(@RequestBody LoginRequest loginRequest) {
-        Boolean valid = usuarioService.validarSenha(loginRequest);
-        Optional<Usuario> optFindByEmail = iUsuario.findByEmail(loginRequest.getEmail());
+    public ResponseEntity<?> validarSenha(@RequestBody LoginRequestDto loginRequestDto) {
+        Boolean valid = usuarioService.validarSenha(loginRequestDto);
+        Optional<Usuario> optFindByEmail = iUsuario.findByEmail(loginRequestDto.getEmail());
 
         if (!valid) {
-            return ResponseEntity.status(401).build();
+            return ResponseEntity.status(404).body("Senha ou email incorreto");
         }
 
         Usuario usuario = optFindByEmail.get();

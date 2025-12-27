@@ -18,10 +18,10 @@ public class UserAuth {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "username", length = 100, nullable = false)
+    @Column(name = "username", length = 100, nullable = false, unique = true)
     private String username;
 
-    @Column(name = "senha", length = 100, nullable = false)
+    @Column(name = "senha", length = 100, nullable = false, unique = false)
     private String senha;
 
     @ManyToMany(fetch = FetchType.EAGER)

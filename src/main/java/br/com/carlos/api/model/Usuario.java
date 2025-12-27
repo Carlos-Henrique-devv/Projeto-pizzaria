@@ -15,21 +15,21 @@ public class Usuario {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "nome", length = 200, nullable = false)
+    @Column(name = "nome", length = 200, nullable = false, unique = false)
     private String nome;
 
-    @Column(name = "sobrenome", length = 200)
+    @Column(name = "Sobrenome", length = 200, nullable = true, unique = false)
     private String sobrenome;
 
-    @Column(name = "username", length = 100, nullable = false)
+    @Column(name = "username", length = 100, nullable = false, unique = true)
     private String username;
 
-    @Column(name = "email", length = 50, nullable = false)
+    @Column(name = "email", length = 50, nullable = false, unique = true)
     private String email;
 
-    @Column(name = "senha", length = 100, nullable = false)
+    @Column(name = "senha", length = 100, nullable = false, unique = true)
     private String senha;
 
-    @Column(name = "telefone", length = 15, nullable = false)
+    @Column(name = "telefone", length = 15, nullable = false, unique = true)
     private String telefone;
 }
