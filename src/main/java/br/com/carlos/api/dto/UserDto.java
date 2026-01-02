@@ -9,25 +9,24 @@ import lombok.Setter;
 @Setter
 public class UserDto {
 
-    @NotBlank(message = "Nome e obrigatorio")
+    @NotBlank(message = "Name is required")
     private String name;
 
     private String surname;
 
-    @NotBlank(message = "UserName e obrigatorio")
+    @NotBlank(message = "User is required")
     private String username;
 
-    @NotBlank(message = "Email e obrigatorio")
+    @NotBlank(message = "Email is required")
     @Pattern(
             regexp = "^[^@]*@[^@]*$",
-            message = "O campo deve conter exatamente um '@'"
-    )
+            message = "The field must contain exactly one '@'")
     private String email;
 
-    @NotBlank(message = "Senha e obrigatoria")
+    @NotBlank(message = "Password is required")
     private String password;
 
-    @NotBlank(message = "Telefone e obrigatorio")
+    @NotBlank(message = "Phone is required")
     private String phone;
 
     public UserDto(String name, String surname, String username, String email, String password, String phone) {
