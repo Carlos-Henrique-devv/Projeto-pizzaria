@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/auth.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
     <title>Authentication</title>
 </head>
 <body>
     <div class="box">
-        <h2>authentication</h2>
+        <h2>Login</h2>
 
-        <form th:action="@{/auth}"  method="post">
+        <form th:action="@{/login}"  method="post">
 
             <input type="text" name="username" placeholder="User" required>
 
             <input type="password" name="password" placeholder="Password" required>
 
-            <button type="submit">Signin</button>
+            <button type="submit">Login</button>
         </form>
     </div>
 </body>

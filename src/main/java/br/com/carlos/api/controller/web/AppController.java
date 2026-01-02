@@ -1,4 +1,4 @@
-package br.com.carlos.api.controller;
+package br.com.carlos.api.controller.web;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -13,23 +13,13 @@ public class AppController {
         return "home";
     }
 
-    @GetMapping("/register")
-    public String register() {
-        return "register";
-    }
-
-    @GetMapping("/signin")
-    public String Login() {
-        return "signin";
-    }
-
-    @GetMapping("/auth")
-    public String auth(Authentication authentication) {
+    @GetMapping("/login")
+    public String login(Authentication authentication) {
         if (authentication != null && authentication.isAuthenticated()
                 && !(authentication instanceof AnonymousAuthenticationToken)) {
             return "redirect:/users";
         }
-        return "auth";
+        return "login";
     }
 
     @GetMapping("/error")

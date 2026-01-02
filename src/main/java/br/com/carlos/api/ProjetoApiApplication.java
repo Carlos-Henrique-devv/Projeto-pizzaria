@@ -1,9 +1,9 @@
 package br.com.carlos.api;
 
 import br.com.carlos.api.model.Role;
-import br.com.carlos.api.model.UserAuth;
+import br.com.carlos.api.model.UserRole;
 import br.com.carlos.api.repository.IRole;
-import br.com.carlos.api.repository.IUserAuth;
+import br.com.carlos.api.repository.IUserRole;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,16 +26,16 @@ public class ProjetoApiApplication {
     }
 
     @Bean
-    CommandLineRunner initDataBase(IRole iRole, IUserAuth iUserAuth, PasswordEncoder passwordEncoder) {
+    CommandLineRunner initDataBase(IRole iRole, IUserRole iUserRole, PasswordEncoder passwordEncoder) {
         return args -> {
             if (iRole.findByName("ROLE_ADMIN").isEmpty()) {
                 iRole.save(new Role("ROLE_ADMIN"));
             }
 
-            if (iUserAuth.findByUsername("admin").isEmpty()) {
+            if (iUserRole.findByUsername("admin").isEmpty()) {
                 Role adminRole = iRole.findByName("ROLE_ADMIN").get();
-                UserAuth admin = new UserAuth("admin", passwordEncoder.encode("Admin123."), Set.of(adminRole));
-                iUserAuth.save(admin);
+                UserRole admin = new UserRole("admin", passwordEncoder.encode("Admin123."), Set.of(adminRole));
+                iUserRole.save(admin);
             }
         };
     }

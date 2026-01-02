@@ -8,10 +8,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "auth")
+@Table(name = "perm")
 @Getter
 @Setter
-public class UserAuth {
+public class UserRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,16 +26,16 @@ public class UserAuth {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "auth_roles",
-            joinColumns = @JoinColumn(name = "auth_id"),
+            name = "perm_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new HashSet<>();
 
-    public UserAuth() {
+    public UserRole() {
     }
 
-    public UserAuth(String username, String password, Set<Role> roles) {
+    public UserRole(String username, String password, Set<Role> roles) {
         this.username = username;
         this.password = password;
         this.roles = roles;

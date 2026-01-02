@@ -108,7 +108,7 @@ header nav {
 .img-header {
     width: 100%;
     max-height: 300px;
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .header-text-container {
@@ -121,6 +121,7 @@ header nav {
     text-align: center;
     color: black;
     width: 300px;
+    z-index: 3;
 }
 
 .header-text-container h1, p {

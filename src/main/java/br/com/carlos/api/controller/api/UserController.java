@@ -1,4 +1,4 @@
-package br.com.carlos.api.controller;
+package br.com.carlos.api.controller.api;
 
 import br.com.carlos.api.dto.LoginRequestDto;
 import br.com.carlos.api.dto.UserDto;

@@ -1,7 +1,7 @@
 package br.com.carlos.api.service;
 
-import br.com.carlos.api.model.UserAuth;
-import br.com.carlos.api.repository.IUserAuth;
+import br.com.carlos.api.model.UserRole;
+import br.com.carlos.api.repository.IUserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,21 +13,21 @@ import org.springframework.stereotype.Service;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private IUserAuth iUserAuth;
+    private IUserRole iUserRole;
 
     @Override
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
 
-        UserAuth userAuth = iUserAuth.findByUsername(username)
+        UserRole userRole = iUserRole.findByUsername(username)
                 .orElseThrow(() ->
                         new UsernameNotFoundException("Usuário não encontrado")
                 );
 
         return new org.springframework.security.core.userdetails.User(
-                userAuth.getUsername(),
-                userAuth.getPassword(),
-                userAuth.getRoles().stream()
+                userRole.getUsername(),
+                userRole.getPassword(),
+                userRole.getRoles().stream()
                         .map(role -> new SimpleGrantedAuthority(role.getName()))
                         .toList()
         );

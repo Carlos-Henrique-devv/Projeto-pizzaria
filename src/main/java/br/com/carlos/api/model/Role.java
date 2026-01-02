@@ -21,7 +21,7 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
-    public Set<UserAuth> userAuths;
+    public Set<UserRole> userRoles;
 
     public Role() {
     }

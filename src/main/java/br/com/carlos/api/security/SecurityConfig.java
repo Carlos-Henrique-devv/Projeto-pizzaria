@@ -22,8 +22,8 @@ public class SecurityConfig {
 
                         .anyRequest().permitAll())
 
-                .formLogin(form -> form.loginPage("/auth")
-                        .failureUrl("/auth?erro=true")
+                .formLogin(form -> form.loginPage("/login")
+                        .failureUrl("/login?erro=true")
                         .defaultSuccessUrl("/users")
                         .permitAll())
                 .logout(logout -> logout.permitAll())
