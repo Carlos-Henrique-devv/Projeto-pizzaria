@@ -16,15 +16,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET,"/usuarios").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT,"/usuarios").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE,"/usuarios/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/users").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT,"/users").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/users/**").hasRole("ADMIN")
 
                         .anyRequest().permitAll())
 
                 .formLogin(form -> form.loginPage("/auth")
                         .failureUrl("/auth?erro=true")
-                        .defaultSuccessUrl("/usuarios")
+                        .defaultSuccessUrl("/users")
                         .permitAll())
                 .logout(logout -> logout.permitAll())
                 .httpBasic(Customizer.withDefaults())

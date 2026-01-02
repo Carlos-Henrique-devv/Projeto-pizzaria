@@ -10,10 +10,11 @@
     <div class="box">
         <h2>authentication</h2>
 
-        <form method="post" action="/auth">
-            <input type="text" placeholder="User" required>
+        <form th:action="@{/auth}"  method="post">
 
-            <input type="password" placeholder="Password" required>
+            <input type="text" name="username" placeholder="User" required>
+
+            <input type="password" name="password" placeholder="Password" required>
 
             <button type="submit">Signin</button>
         </form>
