@@ -161,13 +161,13 @@ src/
          name VARCHAR(100) NOT NULL NULL UNIQUE
       );
     
-      create table auth(
+      create table perm(
          id INTEGER PRIMARY KEY AUTO_INCREMENT, 
          username VARCHAR(100) NOT NULL UNIQUE,
          password VARCHAR(100) NOT NULL
       );
     
-      CREATE TABLE auth_roles (
+      CREATE TABLE perm_roles (
        auth_id INT NOT NULL,
        role_id INT NOT NULL,
        PRIMARY KEY (auth_id, role_id)
