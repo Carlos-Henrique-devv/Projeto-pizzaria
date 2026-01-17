@@ -47,66 +47,66 @@ Em aplicações de produção, recomenda-se o uso de cookies HttpOnly para armaz
 ## 📂 Estrutura do projeto
 
    ```
-src/
-├── main
-│   ├── java
-│   │   └── br
-│   │       └── com
-│   │           └── carlos
-│   │               └── api
-│   │                   ├── ProjetoApiApplication.java
-│   │                   ├── controller
-│   │                   │   ├── AppController.java
-│   │                   │   └── UsuarioController.java
-│   │                   ├── dto
-│   │                   │   └── LoginRequest.java
-│   │                   ├── model
-│   │                   │   ├── Role.java
-│   │                   │   ├── UserAuth.java
-│   │                   │   └── Usuario.java
-│   │                   ├── repository
-│   │                   │   ├── IRole.java
-│   │                   │   ├── IUserAuth.java
-│   │                   │   └── IUsuario.java
-│   │                   ├── security
-│   │                   │   └── SecurityConfig.java
-│   │                   ├── service
-│   │                   │   ├── UserDetailsServiceImpl.java
-│   │                   │   └── UsuarioService.java
-│   │                   └── token
-│   │                       ├── Token.java
-│   │                       └── TokenUtil.java
-│   └── resources
-│       ├── application.properties
-│       ├── static
-│       │   ├── css
-│       │   │   ├── auth.css
-│       │   │   ├── cadastro.css
-│       │   │   ├── home.css
-│       │   │   └── signin.css
-│       │   ├── img
-│       │   │   ├── calabresa.jpg
-│       │   │   └── header
-│       │   │       ├── garfo1.png
-│       │   │       ├── imager-header.jpg
-│       │   │       └── menu-harburger.png
-│       │   └── js
-│       │       ├── cadastro.js
-│       │       ├── home.js
-│       │       └── signin.js
-│       └── templates
-│           ├── auth.html
-│           ├── cadastro.html
-│           ├── error.html
-│           ├── home.html
-│           └── signin.html
-└── test
-    └── java
-        └── br
-            └── com
-                └── carlos
-                    └── api
-                        └── ProjetoApiApplicationTests.java
+   src/
+   ├── main
+   │   ├── java
+   │   │   └── br
+   │   │       └── com
+   │   │           └── carlos
+   │   │               └── api
+   │   │                   ├── ProjetoApiApplication.java
+   │   │                   ├── controller
+   │   │                   │   ├── AppController.java
+   │   │                   │   └── UsuarioController.java
+   │   │                   ├── dto
+   │   │                   │   └── LoginRequest.java
+   │   │                   ├── model
+   │   │                   │   ├── Role.java
+   │   │                   │   ├── UserAuth.java
+   │   │                   │   └── Usuario.java
+   │   │                   ├── repository
+   │   │                   │   ├── IRole.java
+   │   │                   │   ├── IUserAuth.java
+   │   │                   │   └── IUsuario.java
+   │   │                   ├── security
+   │   │                   │   └── SecurityConfig.java
+   │   │                   ├── service
+   │   │                   │   ├── UserDetailsServiceImpl.java
+   │   │                   │   └── UsuarioService.java
+   │   │                   └── token
+   │   │                       ├── Token.java
+   │   │                       └── TokenUtil.java
+   │   └── resources
+   │       ├── application.properties
+   │       ├── static
+   │       │   ├── css
+   │       │   │   ├── auth.css
+   │       │   │   ├── cadastro.css
+   │       │   │   ├── home.css
+   │       │   │   └── signin.css
+   │       │   ├── img
+   │       │   │   ├── calabresa.jpg
+   │       │   │   └── header
+   │       │   │       ├── garfo1.png
+   │       │   │       ├── imager-header.jpg
+   │       │   │       └── menu-harburger.png
+   │       │   └── js
+   │       │       ├── cadastro.js
+   │       │       ├── home.js
+   │       │       └── signin.js
+   │       └── templates
+   │           ├── auth.html
+   │           ├── cadastro.html
+   │           ├── error.html
+   │           ├── home.html
+   │           └── signin.html
+   └── test
+       └── java
+           └── br
+               └── com
+                   └── carlos
+                       └── api
+                           └── ProjetoApiApplicationTests.java
 
    ```
 
@@ -117,8 +117,8 @@ src/
     spring.application.name=PROJETO-API
     spring.datasource.username = root
     spring.datasource.password = password
-    spring.datasource.url = jdbc:mysql://localhost:3306/projeto_api
-    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+    spring.datasource.url = jdbc:mysql://localhost:3306/name_DB
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
 
 ---
 
@@ -134,44 +134,46 @@ src/
 
 1. clone o repositorio
 
-    ```bash
+   ```bash
     git clone https://github.com/Carlos-Henrique-devv/Projeto-loja-online.git
     cd Projeto-loja-online
+   ```
 
 2. Cria DB + tablelas + colunas padrão.
 
-    script:
-    ```
-      create database projeto_api;
-    
-      use projeto_api;
-    
-      create table users(
-         id INTEGER PRIMARY KEY AUTO_INCREMENT,  
-         name VARCHAR(200) NOT NULL,  
-         surname VARCHAR(200),  
-         username VARCHAR(100) NOT NULL UNIQUE,  
-         email VARCHAR(50) NOT NULL UNIQUE,  
-         password VARCHAR(100) NOT NULL UNIQUE,  
-         phone VARCHAR(15) NOT NULL UNIQUE  
-      );
-    
-      create table roles(
-         id INTEGER PRIMARY KEY AUTO_INCREMENT, 
-         name VARCHAR(100) NOT NULL NULL UNIQUE
-      );
-    
-      create table perm(
-         id INTEGER PRIMARY KEY AUTO_INCREMENT, 
-         username VARCHAR(100) NOT NULL UNIQUE,
-         password VARCHAR(100) NOT NULL
-      );
-    
-      CREATE TABLE perm_roles (
-       auth_id INT NOT NULL,
-       role_id INT NOT NULL,
-       PRIMARY KEY (auth_id, role_id)
-       );
+       
+   script:
+   ```
+   create database projeto_api;
+
+   use projeto_api;
+
+   create table users(
+      id INTEGER PRIMARY KEY AUTO_INCREMENT,  
+      name VARCHAR(200) NOT NULL,  
+      surname VARCHAR(200),  
+      username VARCHAR(100) NOT NULL UNIQUE,  
+      email VARCHAR(50) NOT NULL UNIQUE,  
+      password VARCHAR(100) NOT NULL UNIQUE,  
+      phone VARCHAR(15) NOT NULL UNIQUE  
+   );
+
+   create table roles(
+      id INTEGER PRIMARY KEY AUTO_INCREMENT, 
+      name VARCHAR(100) NOT NULL UNIQUE
+   );
+
+   create table perm(
+      id INTEGER PRIMARY KEY AUTO_INCREMENT, 
+      username VARCHAR(100) NOT NULL UNIQUE,
+      password VARCHAR(100) NOT NULL
+   );
+
+   CREATE TABLE perm_roles (
+    user_id INT NOT NULL,
+    role_id INT NOT NULL,
+    PRIMARY KEY (user_id, role_id)
+   );
    ```
 3. Agora e só copia esse script é cola no seu servidor MySQL
 4. Acessa o projeto e da um run
@@ -195,7 +197,7 @@ src/
 
 7. Ao acessar (`/users`), a rota só pode ser acessada por usuários que tenham autorização
 
-8. Caso não esteja autorizado, será redirecionado para a rota (`/auth`), página de interceptação do Spring Security
+8. Caso não esteja autorizado, será redirecionado para a rota (`/login`), página de interceptação do Spring Security
 
 10. Usuário padrão autenticado: User: "admin", Senha: "Admin123."
 

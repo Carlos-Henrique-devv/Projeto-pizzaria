@@ -8,21 +8,21 @@
 </head>
 <body>
     <div class="box">
-        <h2>Cadastro</h2>
+        <h2>Register</h2>
 
         <div class="error-message" id="errorMessage">
-            Email ou nome de user já existe/telefone.
+            Email ou nome de user/telefone já existe.
         </div>
 
         <form>
             <input type="text" class="name" name="name" placeholder="Nome (obrigatório)" required>
-            <input type="text" class="surname" name="surname" placeholder="Sobre nome (opcional)">
-            <input type="text" class="username" name="username" placeholder="Nome de user (obrigatório)" required>
+            <input type="text" class="surname" name="surname" placeholder="Sobre nome (Obrigatório)" required>
+            <input type="text" class="username" name="username" placeholder="Nome de usuário (obrigatório)" required>
             <input type="email" class="email" name="email" placeholder="Email (obrigatório)" required>
             <input type="password" class="password" name="password" placeholder="Senha (obrigatória)" required>
             <input type="tel" class="phone" name="phone" placeholder="Telefone (Obrigatório)" required>
 
-            <button>Cadastrar</button>
+            <button>Register</button>
             
             <a th:href="@{/signin}" class="btn-link">Já tem conta? Faça login</a>
         </form>

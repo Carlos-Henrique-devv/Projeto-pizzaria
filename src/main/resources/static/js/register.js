@@ -34,7 +34,7 @@ function register() {
             return;
         }
 
-        if (res.status === 400) {
+        if (res.status === 409) {
             showError();
             return;
         }

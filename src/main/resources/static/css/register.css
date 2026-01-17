@@ -113,7 +113,7 @@ button:active {
     text-decoration: none;
     border: 2px solid var(--cor-segundaria);
     border-radius: 5px;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     font-weight: bolder;
     transition: all 0.3s;
     cursor: pointer;

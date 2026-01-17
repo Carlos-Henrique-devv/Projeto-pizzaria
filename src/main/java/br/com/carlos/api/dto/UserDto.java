@@ -3,15 +3,20 @@ package br.com.carlos.api.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class UserDto {
+
+    private Integer id;
 
     @NotBlank(message = "Name is required")
     private String name;
 
+    @NotBlank(message = "Surname is required")
     private String surname;
 
     @NotBlank(message = "User is required")
@@ -28,13 +33,4 @@ public class UserDto {
 
     @NotBlank(message = "Phone is required")
     private String phone;
-
-    public UserDto(String name, String surname, String username, String email, String password, String phone) {
-        this.name = name;
-        this.surname = surname;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.phone = phone;
-    }
 }

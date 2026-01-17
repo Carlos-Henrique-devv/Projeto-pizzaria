@@ -29,7 +29,7 @@ function signin() {
             return;
         }
 
-        if (res.status === 404) {
+        if (res.status === 401) {
             return showError();
         }
 
