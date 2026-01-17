@@ -67,4 +67,3 @@ form.addEventListener('submit', function(event) {
     register();
     clearFields();
 });
-
